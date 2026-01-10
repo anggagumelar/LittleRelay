@@ -1,6 +1,6 @@
 <div align="center">
  
-# LittleRelay
+# Little Relay
  
 <img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/app-icon.png" width="150">
 
