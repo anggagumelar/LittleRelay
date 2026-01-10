@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- https://developer.android.com/develop/connectivity/bluetooth/bt-permissions?hl=en -->
+
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="31" />
+    <!--BLE scanning requires location permission on Android ≤ 11  -->
+    <!-- On Android 12+, BLUETOOTH_SCAN replaces location for scanning -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+
+
+
+
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name=".MyApplication"
+        android:theme="@style/Theme.LittleRelay">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LittleRelay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".data.service.bluetooth.BlePeripheralServiceImp" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse"/>
+        <service android:name=".data.service.mqtt.MqttServiceImp" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse"/>
+        <service android:name=".data.service.bridge.BleToMqttBridgeServiceImp" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse"/>
+        <service android:name=".data.service.bluetooth.BleCentralServiceImp" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse"/>
+    </application>
+
+
+
+</manifest>
