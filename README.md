@@ -6,7 +6,7 @@
 
 ![GitHub License](https://img.shields.io/github/license/UmerCodez/LittleRelay?style=for-the-badge) ![Android Badge](https://img.shields.io/badge/Android-6.0+-34A853?logo=android&logoColor=fff&style=for-the-badge) ![Jetpack Compose Badge](https://img.shields.io/badge/Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=fff&style=for-the-badge) ![Material 3](https://img.shields.io/badge/Material%203-ebe89d?style=for-the-badge&logo=materialdesign&logoColor=white) ![GitHub Release](https://img.shields.io/github/v/release/UmerCodez/LittleRelay?include_prereleases&style=for-the-badge)
 
-[<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-github.png" height="80">](https://github.com/UmerCodez/LittleRelay/releases) [<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-fdroid.png" height="80">](https://f-droid.org/packages/app.umerfarooq.littlerelay)
+[<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-github.png" height="80">](https://github.com/UmerCodez/LittleRelay/releases) [<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-fdroid.png" height="80">](https://f-droid.org/packages/app.umerfarooq.littlerelay) [<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-obtainium.png" height="80">](https://github.com/ImranR98/Obtainium)
 
 ### An Android application that acts as a bidirectional bridge between BLE devices and an MQTT broker, supporting both Central and Peripheral roles.
 
