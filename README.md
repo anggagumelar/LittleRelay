@@ -8,13 +8,12 @@
 
 [<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-github.png" height="80">](https://github.com/UmerCodez/LittleRelay/releases) [<img src="https://github.com/UmerCodez/LittleRelay/blob/main/assets/gio-fdroid.png" height="80">](https://f-droid.org/packages/app.umerfarooq.littlerelay)
 
-### Android application that enables bidirectional communication between BLE devices and an MQTT broker.
+### An Android application that acts as a bidirectional bridge between BLE devices and an MQTT broker, supporting both Central and Peripheral roles.
 
 <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/6.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/7.jpg" width="250" heigth="250"> <img src="https://github.com/UmerCodez/LittleRelay/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/8.jpg" width="250" heigth="250">
 
 </div>
 
- _Apks will soon be available via Github Releases or F-Droid_
 
 # BLE ↔ MQTT Bridge for Android
 
