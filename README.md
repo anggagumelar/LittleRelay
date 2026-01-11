@@ -50,6 +50,19 @@ The app can operate in **one BLE role at a time**.
 
 In **Peripheral Mode**, the Android app **advertises itself** and allows other BLE devices to connect to it.
 
+```mermaid
+graph LR
+    BLE[BLE Device]
+    APP[Android App]
+    MQTT[MQTT Broker]
+
+    BLE -->|WRITE or WRITE_NO_RESPONSE| APP
+    APP -->|Publish| MQTT
+
+    MQTT -->|Subscribed Data| APP
+    APP -->|NOTIFY| BLE
+```
+
 ## Advertised BLE Service
 
 **Service UUID**
@@ -123,6 +136,18 @@ This mode is ideal when:
 * BLE devices already advertise services
 * Android initiates and manages connections
 
+```mermaid
+graph LR
+    BLE[BLE Device]
+    APP[Android App BLE Central]
+    MQTT[MQTT Broker]
+
+    BLE -->|NOTIFY or INDICATE| APP
+    APP -->|Publish| MQTT
+
+    MQTT -->|Subscribed Data| APP
+    APP -->|WRITE_NO_RESPONSE| BLE
+```
 
 
 ## Device Requirements (Central Role)
