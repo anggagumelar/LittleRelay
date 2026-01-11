@@ -95,7 +95,9 @@ fun NavScreen(modifier: Modifier = Modifier) {
             }
             entry<NavKey.BleConfigScreen> {
                 BleConfigScreen(
-
+                    onBackClick = {
+                        backStack.removeLastOrNull()
+                    }
                 )
             }
             entry<NavKey.DeviceServicesScreen> { deviceServicesScreen ->
