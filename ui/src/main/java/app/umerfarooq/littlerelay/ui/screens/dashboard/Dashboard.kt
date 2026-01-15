@@ -68,6 +68,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -445,20 +446,22 @@ fun DashBoard(
                                 )
                             }
 
-                            IconButton(
-                                onClick = {
-                                    onEvent(DashboardEvent.OnNavigateToBLeSettingClick)
-                                }
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Settings,
-                                    contentDescription = null
-                                )
-                            }
                         } else { // Only possible with android 12+ with no runtime bluetooth permissions granted
                             Text(
+                                modifier = Modifier.align(Alignment.CenterVertically),
                                 text = "Requires permission",
-                                style = MaterialTheme.typography.labelSmall
+                                style = MaterialTheme.typography.labelSmall,
+                            )
+                        }
+
+                        IconButton(
+                            onClick = {
+                                onEvent(DashboardEvent.OnNavigateToBLeSettingClick)
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Settings,
+                                contentDescription = null
                             )
                         }
 
@@ -511,28 +514,49 @@ fun DashBoard(
                             Text("BLE Service (Central)")
                         },
                         actions = {
-                            IconButton(
-                                enabled = state.bleCentralServiceState is BleCentralServiceState.Stopped,
-                                onClick = {
-                                    onEvent(DashboardEvent.OnStartBleCentralServiceClick)
-                                }
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.PlayArrow,
-                                    contentDescription = null
-                                )
-                            }
 
-                            IconButton(
-                                enabled = state.bleCentralServiceState is BleCentralServiceState.Running,
-                                onClick = {
-                                    onEvent(DashboardEvent.OnStopBleCentralServiceClick)
+                            // If android 11 or lower and location permission not granted or if android 12+ and bluetooth runtime permissions are not granted
+                            val shouldShowServiceControls = !isAndroid12OrLater && state.locationPermissionGranted || isAndroid12OrLater && state.areBluetoothPermissionsGranted
+
+                            if(shouldShowServiceControls) {
+                                IconButton(
+                                    enabled = state.bleCentralServiceState is BleCentralServiceState.Stopped,
+                                    onClick = {
+                                        onEvent(DashboardEvent.OnStartBleCentralServiceClick)
+                                    }
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.PlayArrow,
+                                        contentDescription = null
+                                    )
                                 }
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Stop,
-                                    contentDescription = null
-                                )
+
+                                IconButton(
+                                    enabled = state.bleCentralServiceState is BleCentralServiceState.Running,
+                                    onClick = {
+                                        onEvent(DashboardEvent.OnStopBleCentralServiceClick)
+                                    }
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Stop,
+                                        contentDescription = null
+                                    )
+                                }
+
+                            } else {
+                                if(!isAndroid12OrLater) {
+                                    Text(
+                                        modifier = Modifier.align(Alignment.CenterVertically),
+                                        text = "Requires Location permission",
+                                        style = MaterialTheme.typography.labelSmall
+                                    )
+                                } else {
+                                    Text(
+                                        modifier = Modifier.align(Alignment.CenterVertically),
+                                        text = "Requires bluetooth permission",
+                                        style = MaterialTheme.typography.labelSmall
+                                    )
+                                }
                             }
 
                             IconButton(
@@ -550,27 +574,15 @@ fun DashBoard(
 
                         AnimatedVisibility(state.bleCentralServiceState is BleCentralServiceState.Running) {
 
-                            // If android 11 or lower and location permission not granted
-                            val shouldShowBleScanControls = !isAndroid12OrLater && state.locationPermissionGranted || isAndroid12OrLater && state.areBluetoothPermissionsGranted
-
-                            if(shouldShowBleScanControls) {
-                                BleScanStateView(
-                                    state = state.scanState,
-                                    onStartClick = {
-                                        onEvent(DashboardEvent.OnStartScanClick)
-                                    },
-                                    onStopClick = {
-                                        onEvent(DashboardEvent.OnStopScanClick)
-                                    }
-                                )
-                            } else {
-                                if(!isAndroid12OrLater) {
-                                    WarningCard("Location permission not granted")
-                                } else {
-                                    WarningCard("Bluetooth permissions not granted")
+                            BleScanStateView(
+                                state = state.scanState,
+                                onStartClick = {
+                                    onEvent(DashboardEvent.OnStartScanClick)
+                                },
+                                onStopClick = {
+                                    onEvent(DashboardEvent.OnStopScanClick)
                                 }
-                            }
-
+                            )
                         }
 
                     }
