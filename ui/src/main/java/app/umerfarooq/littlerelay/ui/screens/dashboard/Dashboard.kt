@@ -414,38 +414,51 @@ fun DashBoard(
                     },
                     actions = {
 
-                        IconButton(
-                            enabled = state.blePeripheralServiceState is BlePeripheralServiceState.Stopped,
-                            onClick = {
-                                onEvent(DashboardEvent.OnStartBlePeripheralServiceClick)
-                            }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.PlayArrow,
-                                contentDescription = null
-                            )
-                        }
+                        val shouldShowServiceControls = if(isAndroid12OrLater)
+                            state.areBluetoothPermissionsGranted
+                        else
+                            true
 
-                        IconButton(
-                            enabled = state.blePeripheralServiceState is BlePeripheralServiceState.Running,
-                            onClick = {
-                                onEvent(DashboardEvent.OnStopBlePeripheralServiceClick)
-                            }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Stop,
-                                contentDescription = null
-                            )
-                        }
+                        if(shouldShowServiceControls) {
 
-                        IconButton(
-                            onClick = {
-                                onEvent(DashboardEvent.OnNavigateToBLeSettingClick)
+                            IconButton(
+                                enabled = state.blePeripheralServiceState is BlePeripheralServiceState.Stopped,
+                                onClick = {
+                                    onEvent(DashboardEvent.OnStartBlePeripheralServiceClick)
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.PlayArrow,
+                                    contentDescription = null
+                                )
                             }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Settings,
-                                contentDescription = null
+
+                            IconButton(
+                                enabled = state.blePeripheralServiceState is BlePeripheralServiceState.Running,
+                                onClick = {
+                                    onEvent(DashboardEvent.OnStopBlePeripheralServiceClick)
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Stop,
+                                    contentDescription = null
+                                )
+                            }
+
+                            IconButton(
+                                onClick = {
+                                    onEvent(DashboardEvent.OnNavigateToBLeSettingClick)
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Settings,
+                                    contentDescription = null
+                                )
+                            }
+                        } else { // Only possible with android 12+ with no runtime bluetooth permissions granted
+                            Text(
+                                text = "Requires permission",
+                                style = MaterialTheme.typography.labelSmall
                             )
                         }
 
@@ -741,10 +754,12 @@ private fun HomeScreenPreview(modifier: Modifier = Modifier) {
 
     LittleRelayTheme {
         DashBoard(
-            isAndroid12OrLater = false,
+            isAndroid12OrLater = true,
             state = DashboardState(
+                bleRole = BleRole.PERIPHERAL,
                 mqttConnectionState = MqttConnectionState.Connected,
                 gattServerState = GattServerState.Open,
+                areBluetoothPermissionsGranted = false
             ),
             onEvent = {}
         )
